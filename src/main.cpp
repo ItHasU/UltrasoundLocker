@@ -1,50 +1,30 @@
+#include "Arduino.h"
 #include "DigiKeyboardFr.h"
 
-const int TRIG = 0; // TRIG PIN
-const int ECHO = 2; // ECHO PIN
-
-int awayCount = 0;
+const int TRIG = 0;             // TRIG PIN, we use 0 cause it is not related to USB
+const int USB_TIMEOUT_MS = 100; // Timeout during which the usb will have some time to do its stuff
+                                // Keep this low since we won't retrieve the button state during this time
 
 void setup()
 {
+  pinMode(TRIG, INPUT_PULLUP);
+
   DigiKeyboard.update();
   DigiKeyboard.sendKeyStroke(0);
-
-  pinMode(TRIG, OUTPUT);
-  digitalWrite(ECHO, LOW);
-  pinMode(ECHO, INPUT);
 }
 
 void loop()
 {
-  // Trigger ultrasound sensor
-  digitalWrite(TRIG, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(TRIG, LOW);
-
-  // Wait for echo
-  int lecture_echo = pulseIn(ECHO, HIGH);
-  int cm = lecture_echo / 58;
-
-  if (cm > 50)
+  // Wait for button pushed
+  int pushed = digitalRead(TRIG);
+  if (pushed == LOW)
   {
-    awayCount++;
-  }
-  else
-  {
-    awayCount = 0;
-  }
-
-  if (awayCount > 3 && awayCount < 10)
-  {
-    // Away for more than XX cycles
-    // After YY cycles, we concider it is no more necessary to send lockdown shortcut
-    // ... this may also allow the computer to go into sleep mode
-    DigiKeyboard.sendKeyStroke(KEY_L, MOD_GUI_LEFT);
+    // Trigger lock
+    DigiKeyboard.sendKeyStroke(KEY_FR_L, MOD_GUI_LEFT);
   }
 
   // It's better to use DigiKeyboard.delay() over the regular Arduino delay()
   // if doing keyboard stuff because it keeps talking to the computer to make
   // sure the computer knows the keyboard is alive and connected
-  DigiKeyboardFr.delay(1000);
+  DigiKeyboard.delay(USB_TIMEOUT_MS);
 }

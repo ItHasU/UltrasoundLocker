@@ -8,7 +8,7 @@
             "includePath": [
                 "d:/Personnel/Projects/UltrasoundLocker/include",
                 "d:/Personnel/Projects/UltrasoundLocker/src",
-                "d:/Personnel/Projects/UltrasoundLocker/.pio/libdeps/digispark-tiny/DigiKeyboardFr_ID7239/src",
+                "d:/Personnel/Projects/UltrasoundLocker/.pio/libdeps/digispark-tiny/DigiKeyboardFr/src",
                 "C:/Users/Aubry/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkKeyboard",
                 "C:/Users/Aubry/.platformio/packages/framework-arduino-avr-digistump/cores/dtiny",
                 "C:/Users/Aubry/.platformio/packages/framework-arduino-avr-digistump/variants/digispark",
@@ -48,7 +48,7 @@
                 "path": [
                     "d:/Personnel/Projects/UltrasoundLocker/include",
                     "d:/Personnel/Projects/UltrasoundLocker/src",
-                    "d:/Personnel/Projects/UltrasoundLocker/.pio/libdeps/digispark-tiny/DigiKeyboardFr_ID7239/src",
+                    "d:/Personnel/Projects/UltrasoundLocker/.pio/libdeps/digispark-tiny/DigiKeyboardFr/src",
                     "C:/Users/Aubry/.platformio/packages/framework-arduino-avr-digistump/libraries/DigisparkKeyboard",
                     "C:/Users/Aubry/.platformio/packages/framework-arduino-avr-digistump/cores/dtiny",
                     "C:/Users/Aubry/.platformio/packages/framework-arduino-avr-digistump/variants/digispark",
