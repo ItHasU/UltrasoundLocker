@@ -13,7 +13,7 @@
             "request": "launch",
             "name": "PIO Debug",
             "executable": "d:/Personnel/Projects/UltrasoundLocker/.pio/build/digispark-tiny/firmware.elf",
-            "toolchainBinDir": "C:/Users/aubry/.platformio/packages/toolchain-atmelavr/bin",
+            "toolchainBinDir": "C:/Users/Aubry/.platformio/packages/toolchain-atmelavr/bin",
             "preLaunchTask": {
                 "type": "PlatformIO",
                 "task": "Pre-Debug"
@@ -25,7 +25,7 @@
             "request": "launch",
             "name": "PIO Debug (skip Pre-Debug)",
             "executable": "d:/Personnel/Projects/UltrasoundLocker/.pio/build/digispark-tiny/firmware.elf",
-            "toolchainBinDir": "C:/Users/aubry/.platformio/packages/toolchain-atmelavr/bin",
+            "toolchainBinDir": "C:/Users/Aubry/.platformio/packages/toolchain-atmelavr/bin",
             "internalConsoleOptions": "openOnSessionStart"
         }
     ]

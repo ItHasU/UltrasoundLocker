@@ -1,7 +1,7 @@
 #include "DigiKeyboardFr.h"
 
-const int TRIG = 0;
-const int ECHO = 2;
+const int TRIG = 0; // TRIG PIN
+const int ECHO = 2; // ECHO PIN
 
 int awayCount = 0;
 
@@ -26,7 +26,7 @@ void loop()
   int lecture_echo = pulseIn(ECHO, HIGH);
   int cm = lecture_echo / 58;
 
-  if (cm > 40)
+  if (cm > 50)
   {
     awayCount++;
   }
@@ -35,10 +35,10 @@ void loop()
     awayCount = 0;
   }
 
-  if (awayCount && awayCount < 10)
+  if (awayCount > 3 && awayCount < 10)
   {
-    // Away for more than 5 cycles
-    // After 10 cycles, we concider it is no more necessary to send lockdown shortcut
+    // Away for more than XX cycles
+    // After YY cycles, we concider it is no more necessary to send lockdown shortcut
     // ... this may also allow the computer to go into sleep mode
     DigiKeyboard.sendKeyStroke(KEY_L, MOD_GUI_LEFT);
   }
