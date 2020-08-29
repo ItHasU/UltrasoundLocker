@@ -1,14 +1,21 @@
 #include "Arduino.h"
 #include "DigiKeyboardFr.h"
 
-const int TRIG = 0;             // TRIG PIN, we use 0 cause it is not related to USB
+const int GND = 1;              // GND PIN, because GND was not accessible, we use an output set to low
+const int TRIG = 2;             // TRIG PIN, we use 0 cause it is not related to USB
 const int USB_TIMEOUT_MS = 100; // Timeout during which the usb will have some time to do its stuff
                                 // Keep this low since we won't retrieve the button state during this time
 
 void setup()
 {
+  // That's it with GND
+  // pinMode(GND, OUTPUT);
+  // digitalWrite(GND, LOW);
+
+  // Configure trigger pin with a pull up
   pinMode(TRIG, INPUT_PULLUP);
 
+  // Start keyboard
   DigiKeyboard.update();
   DigiKeyboard.sendKeyStroke(0);
 }
